@@ -8,18 +8,27 @@ import './styles.scss';
 const pixabayApiServise = new PixabayApiServise();
 
 refs.input.addEventListener('input', debounce(onSearchInputChange, 500));
+refs.input.addEventListener('submit',stopDefAction )
 refs.outputList.addEventListener('click', onClickImage);
 
+
+function stopDefAction(evt) {
+    evt.preventDefault();
+}
+
 function onSearchInputChange({ target }) {
+    
     pixabayApiServise.query = target.value;
     if (pixabayApiServise.query === '') {
         clearArticlesList();
+        
         return;
     }
 
     clearArticlesList();
     pixabayApiServise.resetPage();
     fetchToPixabayApiAndRender();
+    
 }
 
 function fetchToPixabayApiAndRender() {
@@ -45,7 +54,7 @@ const intersectionCallback = entries => {
 };
 
 const intersectionOptions = {
-    rootMargin: '0% 0% 20% 0%',
+    rootMargin: '0% 0% 10% 0%',
 };
 
 const observer = new IntersectionObserver(

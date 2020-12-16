@@ -22,7 +22,7 @@ function onSearchInputChange({ target }) {
     if (pixabayApiServise.query === '') {
         clearArticlesList();
         
-        return;
+        return; 
     }
 
     clearArticlesList();

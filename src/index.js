@@ -53,4 +53,4 @@ const observer = new IntersectionObserver(
     intersectionOptions,
 );
 
-observer.observe(refs.watcher);
+observer.observe(refs.watcher); 
